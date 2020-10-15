@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+    <div id="app">
+        <button @click="clickHandler">输出</button>
+        <button @click="clickHandler2">输出2</button>
+        <div>{{dog.name}}</div>
+        <div>{{o}}</div>
+    </div>
+    <script type="text/javascript">
+    let vm =new Vue({
+    el: '#app',
+    data: {
+    o: {
+        name:'object'
+    },
+    dog: {
+        age:68
+    }
+ },
+ methods: {
+  clickHandler () {
+   // 该 name 属性是否是响应式的
+  this.$set(this.dog,"name",'trump')
+  },
+  clickHandler2 () {
+    this.o.name = 'hellow' + JSON.stringify(new Date())
+  }
+ }
+})
+    </script>
+</body>
+</html>
